@@ -209,7 +209,6 @@
       <properties>
         <java.version>11</java.version>
         <maven.compiler.release>11</maven.compiler.release>
-        <testng.version>7.10.2</testng.version>
       </properties>
     </profile>
     <profile>
@@ -223,7 +222,6 @@
         <add-modules>--add-modules=jdk.incubator.foreign</add-modules>
         <datasketches-memory.version>4.1.0</datasketches-memory.version>
         <datasketches-java.version>7.0.1</datasketches-java.version>
-        <testng.version>7.10.2</testng.version>
       </properties>
     </profile>
   </profiles>
