@@ -1,0 +1,59 @@
+# Eclipse project files 
+.classpath
+.project
+.settings/
+.checkstyle
+
+# IntelliJ project files
+*.idea
+*.iml
+*.ipr
+*.iws
+
+# Netbeans project files
+nb-configuration.xml
+nbactions.xml
+
+# Additional tools
+.clover/
+
+# OSX files
+.DS_Store
+
+# Compiler output, class files
+*.class
+bin
+
+# Log file
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+#Test config and output
+test-output/
+local/
+reports/
+.pmd
+tmp
+
+# Build artifacts
+target/
+out/
+build/
+jarsIn/
+*.jar
+build.xml
+*.properties
+*.releaseBackup
+*.next
+*.asc
+dependency-reduced-pom.xml
