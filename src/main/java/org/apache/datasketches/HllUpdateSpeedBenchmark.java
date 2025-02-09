@@ -137,9 +137,11 @@ public class HllUpdateSpeedBenchmark {
    *
    * a) Via the command line (with JAVA_HOME set to Java 8, Java 11 or Java 17):
    *  $ mvn clean install
+   *
+   *  Java 8 run command line:
    *  $ java -cp target/datasketches-jmh-benchmarks.jar org.apache.datasketches.HllUpdateSpeedBenchmark
    *
-   *  N.B. For Java 11 only, the command-line required is as follows:
+   *  Java 11 run command line:
    *  $ java -cp target/datasketches-jmh-benchmarks.jar \
    *    --add-opens java.base/java.io=ALL-UNNAMED \
    *    org.apache.datasketches.HllUpdateSpeedBenchmark \
@@ -147,6 +149,11 @@ public class HllUpdateSpeedBenchmark {
    *      --add-exports java.base/jdk.internal.ref=ALL-UNNAMED \
    *      --add-opens java.base/java.nio=ALL-UNNAMED \
    *      --add-opens java.base/sun.nio.ch=ALL-UNNAMED"
+   *
+   *  Java 17 run command line:
+   *  $ java -cp target/datasketches-jmh-benchmarks.jar \
+   *    --add-modules=jdk.incubator.foreign \
+   *    org.apache.datasketches.HllUpdateSpeedBenchmark
    *
    *  You also can modify default parameters through the command line
    *  e.g.
