@@ -135,16 +135,24 @@ public class HllUpdateSpeedBenchmark {
    *
    * You can run this test:
    *
-   * a) Via the command line:
+   * a) Via the command line (with JAVA_HOME set to Java 8, Java 11 or Java 17):
    *  $ mvn clean install
    *  $ java -cp target/datasketches-jmh-benchmarks.jar org.apache.datasketches.HllUpdateSpeedBenchmark
+   *
+   *  N.B. For Java 11 only, the command-line required is as follows:
+   *  $ java -cp target/datasketches-jmh-benchmarks.jar \
+   *    --add-opens java.base/java.io=ALL-UNNAMED \
+   *    org.apache.datasketches.HllUpdateSpeedBenchmark \
+   *    -Djmh.jvmArgsAppend="--add-exports java.base/jdk.internal.misc=ALL-UNNAMED \
+   *      --add-exports java.base/jdk.internal.ref=ALL-UNNAMED \
+   *      --add-opens java.base/java.nio=ALL-UNNAMED \
+   *      --add-opens java.base/sun.nio.ch=ALL-UNNAMED"
    *
    *  You also can modify default parameters through the command line
    *  e.g.
    *  $ java -cp target/datasketches-jmh-benchmarks.jar \
-   *    -DlgK=14
    *    -Doffheap=false,true \
-   *    -DtgtHllType=HLL_4,HLL_6,HLL_8 \
+   *    -DtgtHllType=HLL_4,HLL_6,HLL_8
    *    org.apache.datasketches.HllUpdateSpeedBenchmark
   */
   public static void main(String[] args) throws RunnerException {
