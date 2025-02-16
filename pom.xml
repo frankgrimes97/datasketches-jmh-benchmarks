@@ -22,6 +22,8 @@
     <!-- Library dependencies -->
     <datasketches-memory.version>3.0.2</datasketches-memory.version>
     <datasketches-java.version>6.2.0</datasketches-java.version>
+    <jfreechart.version>1.5.5</jfreechart.version>
+    <xchart.version>3.8.8</xchart.version>
 
     <!--  Maven Plugins -->
     <maven-clean-plugin.version>3.4.0</maven-clean-plugin.version>
@@ -63,6 +65,28 @@
       <artifactId>datasketches-java</artifactId>
       <version>${datasketches-java.version}</version>
     </dependency>
+
+    <dependency>
+        <groupId>org.jfree</groupId>
+        <artifactId>jfreechart</artifactId>
+        <version>${jfreechart.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.knowm.xchart</groupId>
+        <artifactId>xchart</artifactId>
+        <version>${xchart.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>de.erichseifert.vectorgraphics2d</groupId>
+            <artifactId>VectorGraphics2D</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+          </exclusion>
+        </exclusions>
+    </dependency>
   </dependencies>
 
   <build>
@@ -79,6 +103,7 @@
             </goals>
             <configuration>
               <finalName>${uberjar.name}</finalName>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
               <transformers> 
                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                   <mainClass>org.openjdk.jmh.Main</mainClass>
@@ -104,7 +129,12 @@
                 <filter>
                   <artifact>*:*</artifact>
                   <excludes>
+                    <exclude>META-INF/DEPENDENCIES</exclude>
                     <exclude>META-INF/MANIFEST.MF</exclude>
+                    <exclude>META-INF/LICENSE</exclude>
+                    <exclude>META-INF/LICENSE.txt</exclude>
+                    <exclude>META-INF/NOTICE</exclude>
+                    <exclude>META-INF/NOTICE.txt</exclude>
                   </excludes>
                 </filter>
                 <filter>
@@ -112,17 +142,6 @@
                   <includes>
                     <include>**</include>
                   </includes>
-                </filter>
-                <filter>
-                  <!--
-                      Avoids warning of duplicates among datasketches-java and datasketches-memory
-                  -->
-                  <artifact>org.apache.datasketches:datasketches-memory</artifact>
-                  <excludes>
-                    <exclude>META-INF/DEPENDENCIES</exclude>
-                    <exclude>META-INF/LICENSE</exclude>
-                    <exclude>META-INF/NOTICE</exclude>
-                  </excludes>
                 </filter>
               </filters>
             </configuration>

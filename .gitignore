@@ -57,3 +57,4 @@ build.xml
 *.next
 *.asc
 dependency-reduced-pom.xml
+*.pdf
